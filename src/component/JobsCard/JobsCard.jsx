@@ -1,8 +1,11 @@
+import dayjs from "dayjs";
 import React from "react";
 
 const JobsCard = () => {
   //skills array that required
   const skills = ["JavaScript", "React", "NodeJs"];
+  const date = dayjs(Date.now());
+  const differentDays = date.diff("2024-06-6", "day");
 
   return (
     <div>
@@ -18,7 +21,11 @@ const JobsCard = () => {
           </div>
           `
         </div>
-        <div></div>
+        //here the days that posted
+        <div>
+                  <p>Posted on {differentDays} </p>
+                  <button>Apply</button>
+        </div>
       </div>
     </div>
   );
