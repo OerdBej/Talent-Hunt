@@ -2,7 +2,7 @@ import React from "react";
 
 const SearchBar = () => {
   return (
-    <div>
+    <div className='flex gap-4 my-10 justify-center px-10'>
       <select className='w-64 pl-4 py-3 bg-zinc-200 font-semibold rounded-md'>
         <option value='' disabled hidden selected>
           Jobs
