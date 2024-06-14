@@ -11,6 +11,10 @@ const App = () => {
       <Header />
       <SearchBar />
       <JobsCard />
+      <JobsCard />
+      <JobsCard />
+      <JobsCard />
+      <JobsCard />
     </div>
   );
 };
