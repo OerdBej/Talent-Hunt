@@ -3,7 +3,8 @@ import Navbar from './component/Navbar/Navbar';
 import Header from './component/Header/Header';
 import SearchBar from './component/SearchBar/SearchBar';
 import JobsCard from './component/JobsCard/JobsCard';
-import JobsData from './component/Jobs_API';
+// the fake api data dummy
+import jobsData from './component/Jobs_API/jobs_api';
 
 const App = () => {
   return (
@@ -11,10 +12,10 @@ const App = () => {
       <Navbar />
       <Header />
       <SearchBar />
-      <JobsCard />
-      <JobsCard />
-      <JobsCard />
-      <JobsCard />
+      {/* in order to pas as props we map */}
+      {jobsData.map((job) => (
+        <JobsCard key={job.id} {...job} />
+      ))}
       <JobsCard />
     </div>
   );
