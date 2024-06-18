@@ -1,9 +1,46 @@
-import React from 'react'
-
-const Jobs_api = () => {
-  return (
-    <div>Jobs_api</div>
-  )
-}
-
-export default Jobs_api
+export default [
+  {
+    id: 1,
+    postedOn: '2024-10-18',
+    title: 'Frontend Developer',
+    company: '01Solutions',
+    type: 'Full Time',
+    experience: 'Mid Level',
+    location: 'Remote',
+    skills: ['JavaScript', 'React', 'Material UI', 'Express.js'],
+    job_link: 'https://www.google.com',
+  },
+  {
+    id: 2,
+    postedOn: '2024-11-05',
+    title: 'Backend Engineer',
+    company: 'Tech Innovators',
+    type: 'Part Time',
+    experience: 'Senior Level',
+    location: 'San Francisco, CA',
+    skills: ['Node.js', 'Express', 'MongoDB', 'Docker'],
+    job_link: 'https://www.example.com/job2',
+  },
+  {
+    id: 3,
+    postedOn: '2024-09-30',
+    title: 'UI/UX Designer',
+    company: 'Creative Minds',
+    type: 'Contract',
+    experience: 'Junior Level',
+    location: 'New York, NY',
+    skills: ['Sketch', 'Figma', 'Adobe XD', 'User Research'],
+    job_link: 'https://www.example.com/job3',
+  },
+  {
+    id: 4,
+    postedOn: '2024-12-01',
+    title: 'DevOps Engineer',
+    company: 'Cloud Services Ltd.',
+    type: 'Full Time',
+    experience: 'Mid Level',
+    location: 'Austin, TX',
+    skills: ['AWS', 'Terraform', 'Kubernetes', 'CI/CD'],
+    job_link: 'https://www.example.com/job4',
+  },
+];
