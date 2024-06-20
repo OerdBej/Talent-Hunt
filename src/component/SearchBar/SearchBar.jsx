@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState } from 'react';
 
 const SearchBar = () => {
+  // Use state to manage the selected values for each select input
+  const [selectedJob, setSelectedJob] = useState('');
+  const [selectedJobType, setSelectedJobType] = useState('');
+  const [selectedLocation, setSelectedLocation] = useState('');
+  const [selectedExperience, setSelectedExperience] = useState('');
+
   return (
     <div className='flex gap-4 my-10 justify-center px-10'>
-      <select className='w-64 pl-4 py-3 bg-zinc-200 font-semibold rounded-md'>
-        <option value='' disabled hidden selected>
+      <select
+        className='w-64 pl-4 py-3 bg-zinc-200 font-semibold rounded-md'
+        value={selectedJob}
+        onChange={(e) => setSelectedJob(e.target.value)}
+      >
+        <option value='' disabled hidden>
           Jobs
         </option>
         <option value='Frontend'>Frontend</option>
@@ -14,9 +24,13 @@ const SearchBar = () => {
         <option value='Advocate'>Advocate</option>
       </select>
       {/* the other Job type */}
-      <select className='w-54 pl-4 py-3 bg-zinc-200 font-semibold rounded-md'>
-        <option value='' disabled hidden selected>
-          Jobs
+      <select
+        className='w-54 pl-4 py-3 bg-zinc-200 font-semibold rounded-md'
+        value={selectedJobType}
+        onChange={(e) => setSelectedJobType(e.target.value)}
+      >
+        <option value='' disabled hidden>
+          Job Type
         </option>
         <option value='Frontend'>Frontend</option>
         <option value='Backend'>Backend</option>
@@ -25,9 +39,13 @@ const SearchBar = () => {
         <option value='Advocate'>Advocate</option>
       </select>
       {/* the other Location */}
-      <select className='w-54 pl-4 py-3 bg-zinc-200 font-semibold rounded-md'>
-        <option value='' disabled hidden selected>
-          Jobs
+      <select
+        className='w-54 pl-4 py-3 bg-zinc-200 font-semibold rounded-md'
+        value={selectedLocation}
+        onChange={(e) => setSelectedLocation(e.target.value)}
+      >
+        <option value='' disabled hidden>
+          Location
         </option>
         <option value='Frontend'>Frontend</option>
         <option value='Backend'>Backend</option>
@@ -36,9 +54,13 @@ const SearchBar = () => {
         <option value='Advocate'>Advocate</option>
       </select>
       {/* the other Experience */}
-      <select className='w-54 pl-4 py-3 bg-zinc-200 font-semibold rounded-md'>
-        <option value='' disabled hidden selected>
-          Jobs
+      <select
+        className='w-54 pl-4 py-3 bg-zinc-200 font-semibold rounded-md'
+        value={selectedExperience}
+        onChange={(e) => setSelectedExperience(e.target.value)}
+      >
+        <option value='' disabled hidden>
+          Experience
         </option>
         <option value='Frontend'>Frontend</option>
         <option value='Backend'>Backend</option>

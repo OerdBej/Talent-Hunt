@@ -16,7 +16,6 @@ const App = () => {
       {jobsData.map((job) => (
         <JobsCard key={job.id} {...job} />
       ))}
-      <JobsCard />
     </div>
   );
 };

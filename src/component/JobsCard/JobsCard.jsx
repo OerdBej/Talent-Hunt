@@ -16,10 +16,12 @@ const JobsCard = (props) => {
             {' '}
             {props.title} - {props.company}
           </h1>
-          <p>Full Time - Junior - In-Office</p>
+          <p>
+            {props.type}- {props.experience} - {props.location}
+          </p>
           {/* tags skills map */}
           <div className='flex items-center gap-2'>
-            {skills.map((skill) => (
+            {props.skills.map((skill) => (
               <p
                 className='text-green-500 py-1 px-2 rounded-md border border-black'
                 key={skill}
@@ -32,7 +34,7 @@ const JobsCard = (props) => {
         {/* here the days that posted */}
         <div className='flex items-center gap-4'>
           <p className='text-gray-400'>Posted on {differentDays} days ago</p>
-          <a href=''>
+          <a href={props.job_link}>
             <button className='text-blue-600 border-blue-600 px-10 py-2 rounded-md'>
               Apply
             </button>
