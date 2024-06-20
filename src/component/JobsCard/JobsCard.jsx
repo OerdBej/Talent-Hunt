@@ -21,10 +21,10 @@ const JobsCard = (props) => {
           </p>
           {/* tags skills map */}
           <div className='flex items-center gap-2'>
-            {props.skills.map((skill) => (
+            {props.skills.map((skill, index) => (
               <p
+                key={index}
                 className='text-green-500 py-1 px-2 rounded-md border border-black'
-                key={skill}
               >
                 {skill}
               </p>
