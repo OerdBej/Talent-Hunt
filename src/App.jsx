@@ -12,27 +12,29 @@ import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from './Firebase/firebase.config';
 
 const App = () => {
-  const [jobsData, setJobsData] = useState([]);
+  const [jobs, setJobs] = useState([]);
 
   //async to fetch jobs - firebase
 
   const fetchJobs = async () => {
+    //all jobs to be stored, in order to pass to the state
+    const tempJobs = [];
     try {
-      // Querying data from the collection
       const q = query(collection(db, 'jobs'));
       const querySnapshot = await getDocs(q);
-      //to get all the data
-      querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, ' => ', doc.data());
+      querySnapshot.forEach((job) => {
+        tempJobs.push({ ...job.data, id: job.id });
       });
     } catch (error) {
       console.error('Error fetching jobs: ', error);
     }
+    setJobs(tempJobs);
   };
 
   //display in ui to fetch the page is loaded with new job
-  useEffect(() => {}, []);
+  useEffect(() => {
+    fetchJobs();
+  }, []);
 
   return (
     <div>
