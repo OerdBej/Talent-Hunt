@@ -3,26 +3,23 @@ import Navbar from './component/Navbar/Navbar';
 import Header from './component/Header/Header';
 import SearchBar from './component/SearchBar/SearchBar';
 import JobsCard from './component/JobsCard/JobsCard';
-// the fake api data dummy
 import jobsData from './component/Jobs_API/jobs_api';
 
-//get multiple documents from a collection
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import { collection, query, where, getDocs, orderBy } from 'firebase/firestore';
 //data in our database
 import { db } from './Firebase/firebase.config';
 
 const App = () => {
   const [jobs, setJobs] = useState([]);
 
-  //async to fetch jobs - firebase
-
   const fetchJobs = async () => {
-    //all jobs to be stored, in order to pass to the state
     const tempJobs = [];
+    const jobsRef = query(collection(db, 'jobs'));
+    const q = query(jobsRef, orderBy('postedOn', 'desc'));
     try {
       const q = query(collection(db, 'jobs'));
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((job) => {
+      const request = await getDocs(q);
+      request.forEach((job) => {
         tempJobs.push({ ...job.data, id: job.id });
       });
     } catch (error) {
@@ -31,7 +28,6 @@ const App = () => {
     setJobs(tempJobs);
   };
 
-  //display in ui to fetch the page is loaded with new job
   useEffect(() => {
     fetchJobs();
   }, []);
