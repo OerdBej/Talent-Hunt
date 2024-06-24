@@ -16,15 +16,15 @@ const App = () => {
     const tempJobs = [];
     const jobsRef = query(collection(db, 'jobs'));
     const q = query(jobsRef, orderBy('postedOn', 'desc'));
-    try {
-      const q = query(collection(db, 'jobs'));
-      const request = await getDocs(q);
-      request.forEach((job) => {
-        tempJobs.push({ ...job.data, id: job.id });
+    const req = await getDocs(q);
+
+    req.forEach((job) => {
+      tempJobs.push({
+        ...job.data(),
+        id: job.id,
+        postedOn: job.data().postedOn.toDate(),
       });
-    } catch (error) {
-      console.error('Error fetching jobs: ', error);
-    }
+    });
     setJobs(tempJobs);
   };
 
