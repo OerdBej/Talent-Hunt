@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { preview } from 'vite';
 
+<<<<<<< HEAD
 // props from the state
 const SearchBar = (props) => {
   const [jobRequirments, setJobRequirments] =
@@ -21,12 +22,26 @@ const SearchBar = (props) => {
   const search = async () => {
     await props.fetchJobs(jobRequirments);
   };
+=======
+const SearchBar = () => {
+  const [jobCriteria, setJobCriteria] = useState({
+    title: '',
+    location: '',
+    experience: '',
+    type: '',
+  });
+>>>>>>> refactoring
 
   return (
     <div className='flex gap-4 my-10 justify-center px-10'>
       <select
         className='w-64 pl-4 py-3 bg-zinc-200 font-semibold rounded-md'
+<<<<<<< HEAD
         value={selectedJob}
+=======
+        name='title'
+        value={jobCriteria.title}
+>>>>>>> refactoring
       >
         <option value='' disabled hidden>
           Jobs
@@ -44,7 +59,12 @@ const SearchBar = (props) => {
       {/* the other Job type */}
       <select
         className='w-54 pl-4 py-3 bg-zinc-200 font-semibold rounded-md'
+<<<<<<< HEAD
         value={selectedJobType}
+=======
+        name='type'
+        value={jobCriteria.type}
+>>>>>>> refactoring
       >
         <option value='' disabled hidden>
           Job Type
@@ -62,7 +82,12 @@ const SearchBar = (props) => {
       {/* the other Location */}
       <select
         className='w-54 pl-4 py-3 bg-zinc-200 font-semibold rounded-md'
+<<<<<<< HEAD
         value={selectedLocation}
+=======
+        name='location'
+        value={jobCriteria.location}
+>>>>>>> refactoring
       >
         <option value='' disabled hidden>
           Location
@@ -80,7 +105,12 @@ const SearchBar = (props) => {
       {/* the other Experience */}
       <select
         className='w-54 pl-4 py-3 bg-zinc-200 font-semibold rounded-md'
+<<<<<<< HEAD
         value={selectedExperience}
+=======
+        name='experience'
+        value={jobCriteria.experience}
+>>>>>>> refactoring
       >
         <option value='' disabled hidden>
           Experience
