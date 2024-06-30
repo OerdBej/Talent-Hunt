@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 
 const SearchBar = () => {
-  // Use state to manage the selected values for each select input
-  const [selectedJob, setSelectedJob] = useState('');
-  const [selectedJobType, setSelectedJobType] = useState('');
-  const [selectedLocation, setSelectedLocation] = useState('');
-  const [selectedExperience, setSelectedExperience] = useState('');
+  const [jobCriteria, setJobCriteria] = useState({
+    title: '',
+    location: '',
+    experience: '',
+    type: '',
+  });
 
   return (
     <div className='flex gap-4 my-10 justify-center px-10'>
       <select
         className='w-64 pl-4 py-3 bg-zinc-200 font-semibold rounded-md'
-        value={selectedJob}
-        onChange={(e) => setSelectedJob(e.target.value)}
+        name='title'
+        value={jobCriteria.title}
       >
         <option value='' disabled hidden>
           Jobs
@@ -26,8 +27,8 @@ const SearchBar = () => {
       {/* the other Job type */}
       <select
         className='w-54 pl-4 py-3 bg-zinc-200 font-semibold rounded-md'
-        value={selectedJobType}
-        onChange={(e) => setSelectedJobType(e.target.value)}
+        name='type'
+        value={jobCriteria.type}
       >
         <option value='' disabled hidden>
           Job Type
@@ -41,8 +42,8 @@ const SearchBar = () => {
       {/* the other Location */}
       <select
         className='w-54 pl-4 py-3 bg-zinc-200 font-semibold rounded-md'
-        value={selectedLocation}
-        onChange={(e) => setSelectedLocation(e.target.value)}
+        name='location'
+        value={jobCriteria.location}
       >
         <option value='' disabled hidden>
           Location
@@ -56,8 +57,8 @@ const SearchBar = () => {
       {/* the other Experience */}
       <select
         className='w-54 pl-4 py-3 bg-zinc-200 font-semibold rounded-md'
-        value={selectedExperience}
-        onChange={(e) => setSelectedExperience(e.target.value)}
+        name='experience'
+        value={jobCriteria.experience}
       >
         <option value='' disabled hidden>
           Experience
