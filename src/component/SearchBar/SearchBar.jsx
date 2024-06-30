@@ -1,28 +1,5 @@
 import React, { useState } from 'react';
-import { preview } from 'vite';
 
-<<<<<<< HEAD
-// props from the state
-const SearchBar = (props) => {
-  const [jobRequirments, setJobRequirments] =
-    useState({
-      title: '',
-      location: '',
-      experience: '',
-      type: '',
-    });
-
-  const handleChange = (e) => {
-    setJobRequirments((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  const search = async () => {
-    await props.fetchJobs(jobRequirments);
-  };
-=======
 const SearchBar = () => {
   const [jobCriteria, setJobCriteria] = useState({
     title: '',
@@ -30,110 +7,83 @@ const SearchBar = () => {
     experience: '',
     type: '',
   });
->>>>>>> refactoring
 
-  const handleChange = () => {
-    //blah
+  const handleChange = (e) => {
+    // One update value at a time
+    setJobCriteria((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   return (
     <div className='flex gap-4 my-10 justify-center px-10'>
       <select
+        onChange={handleChange}
         className='w-64 pl-4 py-3 bg-zinc-200 font-semibold rounded-md'
-<<<<<<< HEAD
-        value={selectedJob}
-=======
         name='title'
         value={jobCriteria.title}
->>>>>>> refactoring
       >
         <option value='' disabled hidden>
           Jobs
         </option>
         <option value='Frontend'>Frontend</option>
         <option value='Backend'>Backend</option>
-        <option value='iOS Developer'>
-          iOS Developer
-        </option>
-        <option value='Android Developer'>
-          Android Developer
-        </option>
+        <option value='iOS Developer'>iOS Developer</option>
+        <option value='Android Developer'>Android Developer</option>
         <option value='Advocate'>Advocate</option>
       </select>
       {/* the other Job type */}
+
       <select
+        onChange={handleChange}
         className='w-54 pl-4 py-3 bg-zinc-200 font-semibold rounded-md'
-<<<<<<< HEAD
-        value={selectedJobType}
-=======
         name='type'
         value={jobCriteria.type}
->>>>>>> refactoring
       >
         <option value='' disabled hidden>
           Job Type
         </option>
         <option value='Frontend'>Frontend</option>
         <option value='Backend'>Backend</option>
-        <option value='iOS Developer'>
-          iOS Developer
-        </option>
-        <option value='Android Developer'>
-          Android Developer
-        </option>
+        <option value='iOS Developer'>iOS Developer</option>
+        <option value='Android Developer'>Android Developer</option>
         <option value='Advocate'>Advocate</option>
       </select>
       {/* the other Location */}
       <select
+        onChange={handleChange}
         className='w-54 pl-4 py-3 bg-zinc-200 font-semibold rounded-md'
-<<<<<<< HEAD
-        value={selectedLocation}
-=======
         name='location'
         value={jobCriteria.location}
->>>>>>> refactoring
       >
         <option value='' disabled hidden>
           Location
         </option>
         <option value='Frontend'>Frontend</option>
         <option value='Backend'>Backend</option>
-        <option value='iOS Developer'>
-          iOS Developer
-        </option>
-        <option value='Android Developer'>
-          Android Developer
-        </option>
+        <option value='iOS Developer'>iOS Developer</option>
+        <option value='Android Developer'>Android Developer</option>
         <option value='Advocate'>Advocate</option>
       </select>
       {/* the other Experience */}
       <select
+        onChange={handleChange}
         className='w-54 pl-4 py-3 bg-zinc-200 font-semibold rounded-md'
-<<<<<<< HEAD
-        value={selectedExperience}
-=======
         name='experience'
         value={jobCriteria.experience}
->>>>>>> refactoring
       >
         <option value='' disabled hidden>
           Experience
         </option>
         <option value='Frontend'>Frontend</option>
         <option value='Backend'>Backend</option>
-        <option value='iOS Developer'>
-          iOS Developer
-        </option>
-        <option value='Android Developer'>
-          Android Developer
-        </option>
+        <option value='iOS Developer'>iOS Developer</option>
+        <option value='Android Developer'>Android Developer</option>
         <option value='Advocate'>Advocate</option>
       </select>
       {/* button for search */}
-      <button
-        onClick={search}
-        className='w-64 bg-slate-500 text-white font-bold py-3 rounded-md'
-      >
+      <button className='w-64 bg-slate-500 text-white font-bold py-3 rounded-md'>
         Search
       </button>
     </div>
