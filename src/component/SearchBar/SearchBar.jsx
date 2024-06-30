@@ -8,6 +8,10 @@ const SearchBar = () => {
     type: '',
   });
 
+  const handleChange = () => {
+    //blah
+  };
+
   return (
     <div className='flex gap-4 my-10 justify-center px-10'>
       <select
