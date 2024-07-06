@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const SearchBar = () => {
+const SearchBar = (props) => {
   const [jobCriteria, setJobCriteria] = useState({
     title: '',
     location: '',
@@ -17,6 +17,10 @@ const SearchBar = () => {
   };
 
   console.log(jobCriteria);
+
+  const search = async () => {
+    await props.getJobs(jobCriteria);
+  };
 
   return (
     <div className='flex gap-4 my-10 justify-center px-10'>
@@ -84,8 +88,11 @@ const SearchBar = () => {
         <option value='Android Developer'>Android Developer</option>
         <option value='Advocate'>Advocate</option>
       </select>
-      {/* button for search */}
-      <button className='w-64 bg-slate-500 text-white font-bold py-3 rounded-md'>
+      {/* button for search to pss all the state */}
+      <button
+        onClick={search}
+        className='w-64 bg-slate-500 text-white font-bold py-3 rounded-md'
+      >
         Search
       </button>
     </div>
