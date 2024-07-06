@@ -9,12 +9,14 @@ const SearchBar = () => {
   });
 
   const handleChange = (e) => {
-    // One update value at a time
+    // One update value at a time : title
     setJobCriteria((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
   };
+
+  console.log(jobCriteria);
 
   return (
     <div className='flex gap-4 my-10 justify-center px-10'>
