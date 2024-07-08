@@ -17,8 +17,11 @@ import { db } from './Firebase/firebase.config';
 
 const App = () => {
   const [jobs, setJobs] = useState([]);
+  const [resetSearch, setResetSearch] = useState(false);
 
   const fetchJobs = async () => {
+    setResetSearch(true);
+
     const tempJobs = [];
     const jobsRef = query(collection(db, 'jobs'));
     const q = query(jobsRef, orderBy('postedOn', 'desc'));
@@ -36,6 +39,7 @@ const App = () => {
 
   //query the data based on the search form user from querying and filtering data on firebase documentation
   const getJobs = async (jobCriteria) => {
+    setResetSearch(false);
     const tempJobs = [];
     const jobsRef = query(collection(db, 'jobs'));
     const q = query(
@@ -68,6 +72,15 @@ const App = () => {
       <Navbar />
       <Header />
       <SearchBar getJobs={getJobs} />
+
+      {setResetSearch && (
+        <button>
+          <p className='bg-blue-500 px-10 py-2 rounded-md text-white'>
+            clear
+          </p>
+        </button>
+      )}
+
       {/* in order to pas as props we map */}
       {jobsData.map((job) => (
         <JobsCard key={job.id} {...job} />
