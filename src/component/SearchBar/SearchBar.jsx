@@ -16,8 +16,6 @@ const SearchBar = (props) => {
     }));
   };
 
-  console.log(jobCriteria);
-
   const search = async () => {
     await props.getJobs(jobCriteria);
   };

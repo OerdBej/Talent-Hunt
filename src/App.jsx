@@ -40,12 +40,13 @@ const App = () => {
     const jobsRef = query(collection(db, 'jobs'));
     const q = query(
       jobsRef,
-      where('type', '=', jobCriteria.type),
-      where('title', '=', jobCriteria.title),
-      where('experience', '=', jobCriteria.experience),
-      where('location', '=', jobCriteria.location),
+      where('type', '==', jobCriteria.type),
+      where('title', '==', jobCriteria.title),
+      where('experience', '==', jobCriteria.experience),
+      where('location', '==', jobCriteria.location),
       orderBy('postedOn', 'desc')
     );
+
     const req = await getDocs(q);
 
     req.forEach((job) => {
